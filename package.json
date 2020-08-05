@@ -1,0 +1,22 @@
+{
+  "name": "api-rest-chooseyou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Eddy Yoel Fresno Hernandez",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "latest",
+    "body-parser": "latest",
+    "cors": "latest",
+    "express": "latest",
+    "jwt-simple": "latest",
+    "md5": "latest",
+    "moment": "latest",
+    "mongoose": "latest",
+    "socket.io": "latest"
+  }
+}
