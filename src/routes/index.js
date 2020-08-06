@@ -34,7 +34,7 @@ Router
 
   //questions
   .post("/create-question",/* middleware.auth,*/ questionCtr.createQuestion, optionCtr.createOptions, trueOption.createTrueOtions)
-  .post("/get-questions-group", questionCtr.getQuestionPackageByGroup, optionCtr.getOptions, trueOption.getTrueOption)
-  .post("/get-questions-community", questionCtr.getQuestionPackageCommunityByAuthor, optionCtr.getOptions, trueOption.getTrueOption)
+  .get("/get-questions-group/:group/:lastNum/:quiz", questionCtr.getQuestionPackageByGroup, optionCtr.getOptions)
+  .post("/get-questions-community", questionCtr.getQuestionPackageCommunityByAuthor, optionCtr.getOptions)
 
 module.exports = Router;

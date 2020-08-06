@@ -57,7 +57,7 @@ async function _createQuizOptions(res, req, next, options, question, trueOptionP
     return next()
 }
 
-async function getOptions(req, res, next) {
+async function getOptions(req, res) {
     const questions = req.body.box.questions
 
     var groups = []
@@ -68,8 +68,7 @@ async function getOptions(req, res, next) {
 
         var group = {
             question: obj,
-            options,
-            trueOption: 0
+            options
         }
 
         groups.push(group)
@@ -77,8 +76,7 @@ async function getOptions(req, res, next) {
 
     if (error == true) return Postman.error(res)
 
-    req.body.box = { questions: groups }
-    return next()
+    Postman.send(res, 200, "Result", groups)
 }
 
 module.exports = {

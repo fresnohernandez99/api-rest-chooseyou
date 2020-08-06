@@ -20,9 +20,9 @@ async function createQuestion(req, res, next) {
 }
 
 async function getQuestionPackageByGroup(req, res, next) {
-    const group = req.body.group
-    const quiz = req.body.quiz
-    const lastNum = Number.parseInt(req.body.lastNum)
+    const group = req.params.group
+    const quiz = req.params.quiz
+    const lastNum = Number.parseInt(req.params.lastNum)
 
     if (!group) return Postman.badRequest(res)
 
@@ -47,8 +47,8 @@ async function getQuestionPackageByGroup(req, res, next) {
 
 async function getQuestionPackageCommunityByAuthor(req, res, next) {
     const group = "community"
-    const author = req.body.author
-    const lastNum = Number.parseInt(req.body.lastNum)
+    const author = req.params.author
+    const lastNum = Number.parseInt(req.params.lastNum)
 
     if (!author) return Postman.badRequest(res)
 
