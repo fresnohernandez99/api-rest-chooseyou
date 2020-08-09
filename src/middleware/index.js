@@ -4,8 +4,9 @@ const Postman = require("../modules/postman")
 
 async function authForLogin(req, res, next) {
     var facebookId = req.body.facebookId
+    var fullname = req.body.fullname
 
-    if (!facebookId) Postman.badRequest(res, "No credential")
+    if (!facebookId || !fullname) Postman.badRequest(res, "No credential")
 
     facebookId = md5(facebookId)
 
@@ -13,9 +14,10 @@ async function authForLogin(req, res, next) {
         .then(result => {
             req.body.box = {
                 facebookId,
+                fullname,
                 user: result
             }
-            return next
+            return next()
         }).catch(err => Postman.error(res))
 }
 
